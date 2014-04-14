@@ -41,16 +41,6 @@ printf("%i Dimes\n", dimes);
 printf("%i Nickels\n", nickels);
 printf("%i Pennies\n", pennies);
 
-// printf("Quarters remainder %i.\n", remainder);
+printf("%i\n", quarters + dimes + nickels + pennies);
 
 }
-
-// Get change owed
-// Convert to cents
-// Divide by 25, that's the number of quarters
-// Take remainder
-// If greater than 0, divide by 10, that's the number of dimes
-// Take remainder
-// If greater than 0, divide by 5, that's the number of nikels
-// Take remainder
-// If greater than 0, that's the number of pennies.
