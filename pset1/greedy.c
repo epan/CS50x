@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <math.h>
 
 int main(void) {
 
@@ -16,7 +17,8 @@ int pennies;
 do {
     printf("How much change is owed?\n");
     change = GetFloat();
-    change_cents = change * 100;
+    change = round(change*100);
+    change_cents = change;
 }while(change < 0);
 
 quarters = change_cents / 25;
@@ -36,10 +38,10 @@ pennies = remainder;
 // printf("You owe %f.\n", change);
 // printf("You owe %i cents.\n", change_cents);
 
-printf("%i Quarters\n", quarters);
-printf("%i Dimes\n", dimes);
-printf("%i Nickels\n", nickels);
-printf("%i Pennies\n", pennies);
+// printf("%i Quarters\n", quarters);
+// printf("%i Dimes\n", dimes);
+// printf("%i Nickels\n", nickels);
+// printf("%i Pennies\n", pennies);
 
 printf("%i\n", quarters + dimes + nickels + pennies);
 
