@@ -5,13 +5,21 @@
 
 int main(int argc, string argv[]) 
 {
+    int k;
+    string input;
+    // string output;
+    
     if (argc != 2) 
     {
         printf("nope\n");
         return 1;
     } else 
     {
-        printf("yep\n");
+        k = atoi(argv[1]);
+        printf("k is %i\n", k);
+        input = GetString();
+        printf("input is %s\n", input);
+       
     }
     
 }
