@@ -20,6 +20,10 @@ int main(int argc, string argv[])
         input = GetString();
         printf("input is %s\n", input);
        
+        for (int i = 0, n = strlen(input); i < n; i++) 
+        {
+            printf("%c\n", input[i]);
+        }
     }
     
 }
