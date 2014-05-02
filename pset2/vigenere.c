@@ -8,39 +8,41 @@ int encipher(int k, int letter);
 
 int main(int argc, string argv[]) 
 {
-    int k;
-    string input;
+    string ciphertext;
+    string plaintext;
     
-    
-    // Ensure only 1 argument is passed in
     if (argc != 2)
     {
-        printf("nope\n");
         return 1;
-    } 
-    else 
-    {
-        // Convert string to int
-        k = atoi(argv[1]);
-        
-        input = GetString();
-        
-        for (int i = 0, n = strlen(input); i < n; i++) 
-        {
-            int letter = input[i];
-          
-            if (isalpha(letter))
-            {   
-                printf("%c", encipher(k, letter));
-            } 
-            else
-            {
-                printf("%c", input[i]);
-            }
-        }
-        printf("\n");
-        return 0;
     }
+    
+    string ciphertext = argv[1];
+    
+    for (int i = 0, n = strlen(ciphertext); i < n; i++)
+    {
+        if (!isalpha(ciphertext[i]))
+        {
+            return 1;
+        }
+    }    
+        
+    plaintext = GetString();
+        
+    for (int i = 0, n = strlen(input); i < n; i++) 
+    {
+        int letter = input[i];
+          
+        if (isalpha(letter))
+        {   
+            printf("%c", encipher(k, letter));
+        } 
+        else
+        {
+            printf("%c", input[i]);
+        }
+    }
+    printf("\n");
+    return 0;
 }
 
 int encipher(int k, int letter)
