@@ -8,13 +8,15 @@ int main(int argc, string argv[])
 {
     int k;
     string input;
+    int result;
     
     // Ensure only 1 argument is passed in
     if (argc != 2)
     {
         printf("nope\n");
         return 1;
-    } else 
+    } 
+    else 
     {
         // Convert string to int
         k = atoi(argv[1]);
@@ -34,14 +36,36 @@ int main(int argc, string argv[])
             
             // Check to see if character is alpha
             if (isalpha(letter))
-            {       
-                int result = (letter + k);
+            {   
+                if (isupper(letter)) 
+                {
+                    if (letter - 65 + k < 25) 
+                    {
+                        result = (letter + k);
+                    }
+                    else 
+                    {
+                        result = ((letter - 65 + k) % 26) + 65;
+                    }
+                }                  
+                else if (islower(letter))
+                {
+                    if (letter - 97 + k < 25)
+                    {
+                        result = (letter + k);
+                    }
+                    else 
+                    {
+                        result = ((letter - 97 + k) % 26) + 97;
+                    }
+                }
                 
                 // Debug: Confirm the encrypted result
-                printf("the result is %c\n", result);
-            } else
+                printf("the result is %c\n\n", result);
+            } 
+            else
             {
-                printf("%c\n", input[i]);
+                printf("%c\n\n", input[i]);
             }
         }
         return 0;
