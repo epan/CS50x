@@ -40,21 +40,13 @@ int main(int argc, string argv[])
         
     for (int i = 0, n = strlen(plaintext); i < n; i++) 
     {
-        // Advance plain letter
         plainletter = plaintext[i];
-        
-        // DEBUG
-        printf("The plain letter is %c\n", plainletter);
           
         if (isalpha(plainletter))
         {   
             // Advance cipher letter
             cipherletter = ciphertext[j % cipherlength];
-            
-            // DEBUG
-            printf("The cipher letter is %c\n", cipherletter);
-            printf("The cipher text index is %i\n", i % cipherlength);
-            
+                        
             // Calculate shift (k)
             if (isupper(cipherletter))
             {
@@ -65,12 +57,12 @@ int main(int argc, string argv[])
                 k = cipherletter -'a';
             }
             
-            printf("%c\n", encipher(k, plainletter));
+            printf("%c", encipher(k, plainletter));
             j++;
         } 
         else
         {
-            printf("%c\n", plainletter);
+            printf("%c", plainletter);
         }
     }
     printf("\n");
