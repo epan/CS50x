@@ -31,24 +31,24 @@ int main(int argc, string argv[])
             {   
                 if (isupper(letter)) 
                 {
-                    if (letter - 65 + k < 25) 
+                    if (letter - 'A' + k < 25) 
                     {
                         result = (letter + k);
                     }
                     else 
                     {
-                        result = ((letter - 65 + k) % 26) + 65;
+                        result = ((letter - 'A' + k) % 26) + 'A';
                     }
                 }                  
                 else if (islower(letter))
                 {
-                    if (letter - 97 + k < 25)
+                    if (letter - 'a' + k < 25)
                     {
                         result = (letter + k);
                     }
                     else 
                     {
-                        result = ((letter - 97 + k) % 26) + 97;
+                        result = ((letter - 'a' + k) % 26) + 'a';
                     }
                 }
                 printf("%c", result);
