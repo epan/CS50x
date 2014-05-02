@@ -41,11 +41,18 @@ int main(int argc, string argv[])
     {
         // Advance plain letter
         plainletter = plaintext[i];
+        
+        // DEBUG
+        printf("The plain letter is %c\n", plainletter);
           
         if (isalpha(plainletter))
         {   
             // Advance cipher letter
             cipherletter = ciphertext[i % cipherlength];
+            
+            // DEBUG
+            printf("The cipher letter is %c\n", cipherletter);
+            printf("The cipher text index is %i\n", i % cipherlength);
             
             // Calculate shift (k)
             if (isupper(cipherletter))
@@ -57,11 +64,11 @@ int main(int argc, string argv[])
                 k = cipherletter -'a';
             }
             
-            printf("%c", encipher(k, plainletter));
+            printf("%c\n", encipher(k, plainletter));
         } 
         else
         {
-            printf("%c", plainletter);
+            printf("%c\n", plainletter);
         }
     }
     printf("\n");
