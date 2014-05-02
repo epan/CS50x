@@ -8,17 +8,26 @@ int encipher(int k, int letter);
 
 int main(int argc, string argv[]) 
 {
-    string ciphertext;
-    string plaintext;
+    string  ciphertext;
+    int     cipherletter;
+    int     cipherlength;
     
+    string  plaintext;
+    int     plainletter;
+    
+    int k;
+    
+    // Allows only 1 keyword
     if (argc != 2)
     {
         return 1;
     }
     
-    string ciphertext = argv[1];
+    ciphertext = argv[1];
+    cipherlength = strlen(ciphertext);
     
-    for (int i = 0, n = strlen(ciphertext); i < n; i++)
+    // Rejects ciphers with non-alpha content
+    for (int i = 0; i < cipherlength; i++)
     {
         if (!isalpha(ciphertext[i]))
         {
@@ -28,17 +37,31 @@ int main(int argc, string argv[])
         
     plaintext = GetString();
         
-    for (int i = 0, n = strlen(input); i < n; i++) 
+    for (int i = 0, n = strlen(plaintext); i < n; i++) 
     {
-        int letter = input[i];
+        // Advance plain letter
+        plainletter = plaintext[i];
           
-        if (isalpha(letter))
+        if (isalpha(plainletter))
         {   
-            printf("%c", encipher(k, letter));
+            // Advance cipher letter
+            cipherletter = ciphertext[i % cipherlength];
+            
+            // Calculate shift (k)
+            if (isupper(cipherletter))
+            {
+                k = cipherletter - 'A';
+            }
+            else if (islower(cipherletter))
+            {
+                k = cipherletter -'a';
+            }
+            
+            printf("%c", encipher(k, plainletter));
         } 
         else
         {
-            printf("%c", input[i]);
+            printf("%c", plainletter);
         }
     }
     printf("\n");
