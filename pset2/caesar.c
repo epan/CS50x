@@ -20,21 +20,13 @@ int main(int argc, string argv[])
     {
         // Convert string to int
         k = atoi(argv[1]);
-        printf("k is %i\n", k);
         
         input = GetString();
-        
-        // Debug: Confirm the input string
-        printf("input is %s\n", input);
         
         for (int i = 0, n = strlen(input); i < n; i++) 
         {
             int letter = input[i];
-            
-            // Debug: Confirm the letter
-            printf("the letter is %c\n", letter);
-            
-            // Check to see if character is alpha
+          
             if (isalpha(letter))
             {   
                 if (isupper(letter)) 
@@ -59,15 +51,14 @@ int main(int argc, string argv[])
                         result = ((letter - 97 + k) % 26) + 97;
                     }
                 }
-                
-                // Debug: Confirm the encrypted result
-                printf("the result is %c\n\n", result);
+                printf("%c", result);
             } 
             else
             {
-                printf("%c\n\n", input[i]);
+                printf("%c", input[i]);
             }
         }
+        printf("\n");
         return 0;
     }
 }
