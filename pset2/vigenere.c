@@ -16,6 +16,7 @@ int main(int argc, string argv[])
     int     plainletter;
     
     int k;
+    int j = 0;
     
     // Allows only 1 keyword
     if (argc != 2)
@@ -48,7 +49,7 @@ int main(int argc, string argv[])
         if (isalpha(plainletter))
         {   
             // Advance cipher letter
-            cipherletter = ciphertext[i % cipherlength];
+            cipherletter = ciphertext[j % cipherlength];
             
             // DEBUG
             printf("The cipher letter is %c\n", cipherletter);
@@ -65,6 +66,7 @@ int main(int argc, string argv[])
             }
             
             printf("%c\n", encipher(k, plainletter));
+            j++;
         } 
         else
         {
